@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oladimeji Sunday Michael — Agricultural & Environmental Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDE8DC;
+    --paper-2: #E3DCC8;
+    --paper-3: #DDD4B8;
+    --ink: #262319;
+    --ink-soft: #59543F;
+    --moss: #3E5C3A;
+    --moss-soft: #6C8768;
+    --survey-blue: #2E5C8A;
+    --rust: #B5551F;
+    --line: #C7BC9C;
+    --max: 1040px;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+  .mono{ font-family: 'IBM Plex Mono', monospace; }
+
+  ::selection{ background: var(--moss); color: var(--paper); }
+
+  a{ color: inherit; }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(237,232,220,0.88);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width: var(--max); margin:0 auto; padding: 16px 28px;
+    display:flex; justify-content: space-between; align-items:center;
+  }
+  .nav-mark{
+    font-family:'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+  .nav-mark b{ color: var(--moss); }
+  .nav-links{ display:flex; gap: 26px; list-style:none; }
+  .nav-links a{
+    font-family:'IBM Plex Mono', monospace; font-size: 12px; text-decoration:none;
+    color: var(--ink-soft); letter-spacing: 0.04em; text-transform: uppercase;
+    border-bottom: 1px solid transparent; padding-bottom: 2px;
+    transition: border-color .2s, color .2s;
+  }
+  .nav-links a:hover{ color: var(--moss); border-color: var(--moss); }
+  .nav-toggle{ display:none; }
+
+  @media (max-width: 720px){
+    .nav-links{ display:none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    overflow: hidden;
+    padding: 96px 0 84px;
+    border-bottom: 1px solid var(--line);
+  }
+  .contour-bg{
+    position:absolute; inset:0; z-index:0; opacity: 0.55;
+    pointer-events:none;
+  }
+  .contour-bg path{
+    fill:none; stroke: var(--moss-soft); stroke-width: 1;
+  }
+  .contour-bg .c2{ stroke: var(--survey-blue); opacity:.5; }
+  .contour-bg .c3{ stroke: var(--rust); opacity:.35; }
+
+  @keyframes driftA{ 0%{ transform: translate(0,0);} 50%{ transform: translate(-14px,8px);} 100%{ transform: translate(0,0);} }
+  @keyframes driftB{ 0%{ transform: translate(0,0);} 50%{ transform: translate(10px,-10px);} 100%{ transform: translate(0,0);} }
+  .layer-a{ animation: driftA 26s ease-in-out infinite; }
+  .layer-b{ animation: driftB 32s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce){
+    .layer-a, .layer-b{ animation: none; }
+  }
+
+  .hero-inner{ position:relative; z-index:1; }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size: 12.5px;
+    letter-spacing: 0.08em; color: var(--moss); text-transform: uppercase;
+    display:flex; align-items:center; gap: 10px; margin-bottom: 28px;
+  }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background: var(--rust); display:inline-block; }
+
+  .hero h1{
+    font-family:'Fraunces', serif; font-weight: 600;
+    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    line-height: 1.04; letter-spacing: -0.01em;
+    max-width: 11ch;
+  }
+
+  .hero .role{
+    margin-top: 18px;
+    font-family:'Fraunces', serif; font-style: italic; font-weight: 500;
+    font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+    color: var(--moss);
+    max-width: 34ch;
+  }
+
+  .hero .bio{
+    margin-top: 26px; max-width: 52ch;
+    color: var(--ink-soft); font-size: 1.02rem;
+  }
+
+  .coord-readout{
+    margin-top: 30px;
+    font-family:'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ink-soft);
+    border: 1px solid var(--line); background: var(--paper-2);
+    display:inline-flex; gap: 18px; padding: 10px 16px; border-radius: 3px;
+  }
+  .coord-readout span b{ color: var(--ink); font-weight: 500; }
+
+  .cta-row{ margin-top: 38px; display:flex; gap: 14px; flex-wrap: wrap; }
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: .03em;
+    text-transform: uppercase; text-decoration: none;
+    padding: 13px 22px; border-radius: 2px; display:inline-block;
+    transition: transform .15s ease, background .2s, color .2s, border-color .2s;
+  }
+  .btn-solid{ background: var(--ink); color: var(--paper); border: 1px solid var(--ink); }
+  .btn-solid:hover{ background: var(--moss); border-color: var(--moss); transform: translateY(-1px); }
+  .btn-line{ border: 1px solid var(--ink); color: var(--ink); }
+  .btn-line:hover{ background: var(--ink); color: var(--paper); transform: translateY(-1px); }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding: 74px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type{ border-bottom: none; }
+
+  .sec-head{ display:flex; align-items:baseline; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
+  .sec-label{
+    font-family:'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--rust); white-space: nowrap;
+  }
+  .sec-line{ flex:1; height:1px; background: var(--line); min-width: 40px; }
+  .sec-title{
+    font-family:'Fraunces', serif; font-weight: 600; font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  }
+
+  /* About */
+  .about-grid{ display:grid; grid-template-columns: 1.3fr 1fr; gap: 50px; }
+  @media (max-width: 760px){ .about-grid{ grid-template-columns: 1fr; } }
+  .about-grid p{ color: var(--ink-soft); margin-bottom: 16px; }
+  .about-grid p:first-child{ font-size: 1.08rem; color: var(--ink); }
+
+  .stat-box{
+    background: var(--paper-2); border: 1px solid var(--line); border-radius: 3px;
+    padding: 22px; margin-bottom: 14px;
+  }
+  .stat-box .num{ font-family:'Fraunces', serif; font-size: 2.1rem; color: var(--moss); font-weight:600; }
+  .stat-box .label{ font-family:'IBM Plex Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); margin-top: 4px; }
+
+  /* Skills */
+  .skill-groups{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  @media (max-width: 620px){ .skill-groups{ grid-template-columns: 1fr; } }
+  .skill-card{ padding: 22px 0; border-top: 1px solid var(--line); }
+  .skill-card h4{
+    font-family:'IBM Plex Mono', monospace; font-size: 12px; text-transform: uppercase;
+    letter-spacing: .05em; color: var(--survey-blue); margin-bottom: 14px;
+  }
+  .tag-row{ display:flex; flex-wrap: wrap; gap: 8px; }
+  .tag{
+    font-size: 13.5px; padding: 7px 13px; border: 1px solid var(--line);
+    border-radius: 999px; background: var(--paper); color: var(--ink);
+  }
+
+  /* Experience timeline */
+  .log-entry{
+    display:grid; grid-template-columns: 150px 1fr; gap: 24px;
+    padding: 26px 0; border-top: 1px solid var(--line);
+  }
+  @media (max-width: 620px){ .log-entry{ grid-template-columns: 1fr; gap: 8px; } }
+  .log-date{ font-family:'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--rust); }
+  .log-role{ font-family:'Fraunces', serif; font-weight: 600; font-size: 1.25rem; margin-bottom: 2px; }
+  .log-org{ color: var(--moss); font-size: .95rem; margin-bottom: 12px; }
+  .log-entry ul{ padding-left: 18px; color: var(--ink-soft); }
+  .log-entry li{ margin-bottom: 7px; }
+
+  /* Education */
+  .edu-card{
+    background: var(--paper-2); border: 1px solid var(--line); border-radius: 4px; padding: 30px;
+  }
+  .edu-top{ display:flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+  .edu-degree{ font-family:'Fraunces', serif; font-weight: 600; font-size: 1.4rem; }
+  .edu-meta{ font-family:'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); }
+  .edu-school{ color: var(--moss); margin-bottom: 16px; }
+  .badge-row{ display:flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
+  .badge{
+    font-family:'IBM Plex Mono', monospace; font-size: 11.5px; text-transform: uppercase;
+    background: var(--ink); color: var(--paper); padding: 6px 11px; border-radius: 2px;
+  }
+  .thesis-box{
+    margin-top: 18px; padding-top: 18px; border-top: 1px dashed var(--line);
+  }
+  .thesis-box .th-label{ font-family:'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--survey-blue); text-transform: uppercase; margin-bottom: 6px; }
+  .thesis-box ul{ padding-left: 18px; color: var(--ink-soft); margin-top: 8px; }
+  .thesis-box li{ margin-bottom: 6px; }
+
+  /* Writing */
+  .write-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 760px){ .write-grid{ grid-template-columns: 1fr; } }
+  .write-card{
+    border: 1px solid var(--line); border-radius: 3px; padding: 20px;
+    background: var(--paper-2);
+  }
+  .write-card .wc-tag{ font-family:'IBM Plex Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--rust); letter-spacing: .05em; }
+  .write-card h5{ font-family:'Fraunces', serif; font-weight: 600; font-size: 1.05rem; margin: 8px 0; }
+  .write-card p{ color: var(--ink-soft); font-size: .92rem; }
+
+  .x-card{
+    margin-top: 22px; display:flex; justify-content: space-between; align-items:center;
+    flex-wrap: wrap; gap: 16px;
+    border: 1px solid var(--ink); border-radius: 4px; padding: 24px 28px;
+  }
+  .x-card .xc-title{ font-family:'Fraunces', serif; font-size: 1.15rem; font-weight:600; }
+  .x-card .xc-sub{ font-family:'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+
+  /* Awards / Certs */
+  .two-col{ display:grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media (max-width: 700px){ .two-col{ grid-template-columns: 1fr; } }
+  .item-row{ display:flex; gap: 14px; padding: 16px 0; border-top: 1px solid var(--line); }
+  .item-row .yr{ font-family:'IBM Plex Mono', monospace; font-size: 12px; color: var(--rust); min-width: 46px; }
+  .item-row .it-title{ font-weight: 500; }
+  .item-row .it-sub{ color: var(--ink-soft); font-size: .9rem; margin-top: 2px; }
+
+  /* Contact */
+  .contact-wrap{
+    background: var(--ink); color: var(--paper); border-radius: 6px; padding: 56px 44px;
+    position: relative; overflow: hidden;
+  }
+  .contact-wrap h2{ font-family:'Fraunces', serif; font-weight: 600; font-size: clamp(1.8rem, 4vw, 2.6rem); max-width: 14ch; }
+  .contact-wrap .sub{ margin-top: 14px; color: #C9C4B0; max-width: 50ch; }
+  .contact-links{ margin-top: 32px; display:grid; grid-template-columns: repeat(2,1fr); gap: 14px 30px; max-width: 560px; }
+  @media (max-width: 560px){ .contact-links{ grid-template-columns: 1fr; } }
+  .contact-links a{
+    text-decoration:none; display:flex; justify-content: space-between; align-items:center;
+    border-bottom: 1px solid #4a473b; padding: 12px 0; font-size: .98rem;
+  }
+  .contact-links a span.lbl{ font-family:'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; color: #9a967f; }
+  .contact-links a:hover{ color: var(--moss-soft); }
+
+  footer{
+    padding: 28px; text-align:center;
+    font-family:'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--ink-soft);
+  }
+
+  .reveal{ opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-mark"><b>OSM</b> / field-report</div>
+    <ul class="nav-links">
+      <li><a href="#about">Profile</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="contour-bg" viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
+    <g class="layer-a">
+      <path class="c1" d="M-50,80 C150,40 300,120 500,70 C700,20 850,90 1050,60"/>
+      <path class="c1" d="M-50,130 C180,90 320,170 520,120 C720,70 860,140 1050,110"/>
+      <path class="c1" d="M-50,180 C160,150 340,220 540,170 C740,120 880,190 1050,160"/>
+    </g>
+    <g class="layer-b">
+      <path class="c2" d="M-50,340 C200,300 350,380 560,330 C760,280 900,350 1050,320"/>
+      <path class="c2" d="M-50,390 C220,350 380,420 580,380 C780,330 920,400 1050,370"/>
+    </g>
+    <g class="layer-a">
+      <path class="c3" d="M-50,440 C240,410 400,470 600,430 C800,390 940,450 1050,420"/>
+    </g>
+  </svg>
+
+  <div class="wrap hero-inner">
+    <div class="eyebrow"><span class="dot"></span>Abuja, FCT, Nigeria — 9.0765° N, 7.3986° E</div>
+    <h1>Oladimeji Sunday&nbsp;Michael</h1>
+    <div class="role">Agricultural &amp; Environmental Engineer — Geospatial Analysis &amp; Sustainable Systems Design</div>
+    <p class="bio">First-Class engineering graduate (rank 1 of 78, Best Graduating Student) who turns field data into working systems — from RTK-GPS soil surveys and QGIS spatial analysis to drip-irrigation design and mechanised weed control.</p>
+
+    <div class="coord-readout mono">
+      <span>CGPA <b>4.77 / 5.00</b></span>
+      <span>RANK <b>1 / 78</b></span>
+      <span>FIELD PLOTS SURVEYED <b>12+</b></span>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-solid" href="Oladimeji_Michael_CV.pdf" download>Download CV</a>
+      <a class="btn btn-line" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-label">Field Log — Profile</span><span class="sec-line"></span></div>
+    <div class="about-grid reveal">
+      <div>
+        <p>Michael graduated First Class in Agricultural &amp; Environmental Engineering from the Federal University of Technology, Akure — top of a class of 78. His work sits at the intersection of precision agriculture and land-systems engineering: georeferenced field surveying, GIS-based spatial analysis, and the design of low-cost, sustainable irrigation infrastructure.</p>
+        <p>During an internship at the International Institute of Tropical Agriculture (IITA), he ran RTK-GPS soil surveys and precision land-levelling across a dozen research plots, then translated that field data into irrigation and drainage systems for smallholder soybean fields. He later stepped into site management for a construction firm, coordinating crews, procurement, and quality sign-off on live builds.</p>
+        <p>He's now looking for research, project-implementation, or graduate-study opportunities that put his analytical and field-management skills to work.</p>
+      </div>
+      <div>
+        <div class="stat-box"><div class="num">4.77</div><div class="label">Final CGPA, out of 5.00</div></div>
+        <div class="stat-box"><div class="num">60–70%</div><div class="label">Weed-removal efficiency achieved in rotary weeder field trials</div></div>
+        <div class="stat-box"><div class="num">200+</div><div class="label">Students mentored as course representative, 2019–2025</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-label">Site Plan — Skills</span><span class="sec-line"></span></div>
+    <div class="skill-groups reveal">
+      <div class="skill-card">
+        <h4>Geospatial &amp; Field Methods</h4>
+        <div class="tag-row">
+          <span class="tag">QGIS</span><span class="tag">RTK-GPS Surveying</span><span class="tag">GIS Spatial Analysis</span><span class="tag">Georeferenced Field Surveying</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Design &amp; Modelling</h4>
+        <div class="tag-row">
+          <span class="tag">AutoCAD</span><span class="tag">SolidWorks</span><span class="tag">Irrigation & Drainage Design</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Programming &amp; Software</h4>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">MS Excel</span><span class="tag">PowerPoint</span><span class="tag">Word</span><span class="tag">Google Workspace</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Working Style</h4>
+        <div class="tag-row">
+          <span class="tag">Independent &amp; Deadline-driven</span><span class="tag">Technical Report Writing</span><span class="tag">Protocol-following &amp; Data Accuracy</span><span class="tag">Team &amp; Site Coordination</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-label">Site Log — Experience</span><span class="sec-line"></span></div>
+    <div class="reveal">
+      <div class="log-entry">
+        <div class="log-date mono">JAN 2026 —<br>JUN 2026</div>
+        <div>
+          <div class="log-role">Site Manager</div>
+          <div class="log-org">Tagvia Ltd, Abuja, Nigeria</div>
+          <ul>
+            <li>Supervised site workers and subcontractors to keep daily construction targets on track</li>
+            <li>Monitored work against project specifications, safety standards, and timelines</li>
+            <li>Managed procurement and material supply, minimising delays and shortages</li>
+            <li>Oversaw interior finishing — POP ceilings, polystyrene fitting, painting — to quality standard</li>
+            <li>Coordinated between clients, contractors, and workers for smooth execution</li>
+          </ul>
+        </div>
+      </div>
+      <div class="log-entry">
+        <div class="log-date mono">JUL 2024 —<br>DEC 2024</div>
+        <div>
+          <div class="log-role">Research &amp; Mechanization Intern</div>
+          <div class="log-org">International Institute of Tropical Agriculture (IITA), Abuja, Nigeria</div>
+          <ul>
+            <li>Ran georeferenced soil surveys and precision land-levelling across 12+ research plots using RTK-GPS and QGIS, improving field-data accuracy for irrigation planning</li>
+            <li>Designed and installed low-cost drip irrigation and surface drainage systems across soybean fields</li>
+            <li>Co-authored an internal IITA report on scalable mechanization pathways for Nigerian smallholder farmers</li>
+            <li>Applied data-driven farm-management principles through hands-on equipment operation and field decisions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-label">Survey Record — Education</span><span class="sec-line"></span></div>
+    <div class="edu-card reveal">
+      <div class="edu-top">
+        <div>
+          <div class="edu-degree">B.Eng. Agricultural &amp; Environmental Engineering</div>
+          <div class="edu-school">Federal University of Technology, Akure (FUTA), Nigeria</div>
+        </div>
+        <div class="edu-meta">09.2019 – 09.2025</div>
+      </div>
+      <div class="badge-row">
+        <span class="badge">First Class Honours</span>
+        <span class="badge">Rank 1 / 78</span>
+        <span class="badge">Best Graduating Student</span>
+      </div>
+      <div class="thesis-box">
+        <div class="th-label">Thesis (Distinction)</div>
+        <strong>Design Modification &amp; Performance Evaluation of a Rotary Weeder</strong>
+        <ul>
+          <li>Modelled and simulated gear-train modifications in SolidWorks / AutoCAD to improve mechanical efficiency and enable hybrid power integration</li>
+          <li>Ran field performance trials, achieving 60–70% weed-removal efficiency across trial plots</li>
+          <li>Proposed evidence-based design changes to improve sustainability and reduce operator fatigue</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-label">Reports &amp; Written Output</span><span class="sec-line"></span></div>
+    <div class="write-grid reveal">
+      <div class="write-card">
+        <div class="wc-tag">Report — IITA, 2024</div>
+        <h5>Scalable Mechanization Pathways for Nigerian Smallholder Farmers</h5>
+        <p>Co-authored internal research report informing future field-deployment strategy.</p>
+      </div>
+      <div class="write-card">
+        <div class="wc-tag">Seminar — FUTA, 2025</div>
+        <h5>Status of Mechanical Weed Control Methods</h5>
+        <p>Departmental seminar, Agricultural &amp; Environmental Engineering Dept.</p>
+      </div>
+      <div class="write-card">
+        <div class="wc-tag">Thesis — FUTA, 2025</div>
+        <h5>Design Modification &amp; Performance Evaluation of a Rotary Weeder</h5>
+        <p>Undergraduate thesis, completed with Distinction.</p>
+      </div>
+    </div>
+
+    <div class="x-card reveal">
+      <div>
+        <div class="xc-title">More threads &amp; articles on X</div>
+        <div class="xc-sub mono">@0x_mikee</div>
+      </div>
+      <a class="btn btn-solid" href="https://x.com/0x_mikee" target="_blank" rel="noopener">Visit profile →</a>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-label">Awards &amp; Certifications</span><span class="sec-line"></span></div>
+    <div class="two-col reveal">
+      <div>
+        <h4 class="mono" style="font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--survey-blue);margin-bottom:6px;">Awards &amp; Honours</h4>
+        <div class="item-row">
+          <div class="yr mono">2024</div>
+          <div>
+            <div class="it-title">Best Graduating Student</div>
+            <div class="it-sub">Dept. of Agricultural &amp; Environmental Engineering, FUTA</div>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="yr mono">2024</div>
+          <div>
+            <div class="it-title">Prince Adegbule Adesida Memorial Prize</div>
+            <div class="it-sub">Best Graduating Student in Agricultural Engineering, FUTA</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4 class="mono" style="font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--survey-blue);margin-bottom:6px;">Certifications &amp; Service</h4>
+        <div class="item-row">
+          <div class="yr mono">2025–26</div>
+          <div>
+            <div class="it-title">Fundamentals of GIS</div>
+            <div class="it-sub">University of California, Davis — Coursera</div>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="yr mono">2019–25</div>
+          <div>
+            <div class="it-title">Course Representative, Mathematics-related Courses</div>
+            <div class="it-sub">FUTA — mentored 200+ students, organized department-wide study groups</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-wrap reveal">
+      <h2>Let's talk research, projects, or opportunities.</h2>
+      <p class="sub">Open to research roles, project implementation, graduate study, or remote research &amp; data work. Reach out directly below.</p>
+      <div class="contact-links">
+        <a href="mailto:oladimejismage2019@futa.edu.ng"><span>Email <br><span class="lbl">oladimejismage2019@futa.edu.ng</span></span><span>↗</span></a>
+        <a href="tel:+2348135953869"><span>Phone <br><span class="lbl">+234 813 595 3869</span></span><span>↗</span></a>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Oladimeji%20Sunday%20Michael" target="_blank" rel="noopener"><span>LinkedIn <br><span class="lbl">Oladimeji Sunday Michael</span></span><span>↗</span></a>
+        <a href="https://x.com/0x_mikee" target="_blank" rel="noopener"><span>X <br><span class="lbl">@0x_mikee</span></span><span>↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Oladimeji Sunday Michael — Abuja, FCT, Nigeria
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
